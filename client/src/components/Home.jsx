@@ -13,7 +13,7 @@ export default function Home() {
 
 	return (
 		<>
-			{recipes.length &&
+			{recipes.length ? (
 				recipes.map((food) => (
 					<div key={food.id}>
 						<Card
@@ -23,7 +23,10 @@ export default function Home() {
 							diets={food.diets}
 						/>
 					</div>
-				))}
+				))
+			) : (
+				<h1>Cargando...</h1>
+			)}
 		</>
 	);
 }

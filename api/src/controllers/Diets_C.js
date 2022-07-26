@@ -29,4 +29,9 @@ const preload = async () => {
 	}
 };
 
-module.exports = { preload };
+const allDiets = async () => {
+	let diets = await axios.get(`http://localhost:3001/diets`);
+	return diets;
+};
+
+module.exports = { preload, allDiets };

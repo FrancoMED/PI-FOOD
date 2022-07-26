@@ -2,14 +2,15 @@ import axios from 'axios';
 
 export const ALL_RECIPES = 'ALL_RECIPES';
 export const RECIPE_DETAIL = 'RECIPE_DETAIL';
-export const CLEAR_PAGE = 'CLEAR_PAGE';
+export const GET_DIETS = 'GET_DIETS';
 export const FILTER_RECIPES = 'FILTER_RECIPES';
+export const CLEAR_PAGE = 'CLEAR_PAGE';
 
-const ROUTE_RECIPES = 'http://localhost:3001/recipes';
+const LOCALHOST = 'http://localhost:3001/';
 
 export function allRecipes() {
 	return async function call(dispatch) {
-		let aux = await axios.get(ROUTE_RECIPES);
+		let aux = await axios.get(`${LOCALHOST}recipes`);
 		return dispatch({
 			type: ALL_RECIPES,
 			payload: aux.data
@@ -19,10 +20,21 @@ export function allRecipes() {
 
 export function recipeDetail(id) {
 	return async function call(dispatch) {
-		let aux = await axios.get(`${ROUTE_RECIPES}/${id}`);
+		let recipe = await axios.get(`${LOCALHOST}recipes/${id}`);
 		return dispatch({
 			type: RECIPE_DETAIL,
-			payload: aux
+			payload: recipe
+		});
+	};
+}
+
+export function getDiets() {
+	return async function call(dispatch) {
+		let allDiets = await axios.get(`http://localhost:3001/diets`);
+		// console.log(diets.data || 'no existe');
+		return dispatch({
+			type: GET_DIETS,
+			payload: allDiets.data
 		});
 	};
 }

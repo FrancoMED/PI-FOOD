@@ -40,7 +40,10 @@ function DetailsRecipe() {
 						<span>Summary: {recipe_detail.data.summary}</span>
 						<br />
 						<br />
-						<img src={recipe_detail.data.image} alt={recipe_detail.data.name} />
+						<img
+							src={recipe_detail.data.image}
+							alt={`img not found:${recipe_detail.data.name}`}
+						/>
 						<br />
 						<br />
 						<span>Steps by steps: {recipe_detail.data.steps}</span>
