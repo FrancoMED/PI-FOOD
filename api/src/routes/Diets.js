@@ -10,7 +10,6 @@ router.get('/', async (req, res, next) => {
 		} else {
 			res.status(404).json({ message: 'error route /diets' });
 		}
-		// console.log(allDiets);
 	} catch (error) {
 		next(error);
 	}

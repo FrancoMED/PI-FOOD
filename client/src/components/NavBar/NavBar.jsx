@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import SearchBar from './SearchBar.jsx';
+import SearchBar from '../SearchBar/SearchBar.jsx';
 
 export default function NavBar() {
 	return (

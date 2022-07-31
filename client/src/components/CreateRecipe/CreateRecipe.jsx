@@ -1,17 +1,18 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import { getDiets } from '../redux/actions/actions';
+import { NavLink, useHistory } from 'react-router-dom';
+import { getDiets, saveMyRecipe } from '../../redux/actions/actions.js';
 
 export default function CreateRecipe() {
-	let contador = 1;
+	let count = 1;
+
+	const history = useHistory();
 	const allDiets = useSelector((state) => state.allDiets);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getDiets());
-	}, []);
+	}, [dispatch]);
 
 	const [data, setData] = useState({
 		name: '',
@@ -21,6 +22,7 @@ export default function CreateRecipe() {
 		steps: '',
 		diets: []
 	});
+
 	const [error, setError] = useState({
 		name: 'The name of the recipe is required',
 		image: 'The image of the recipe is required',
@@ -78,29 +80,40 @@ export default function CreateRecipe() {
 			error.diets = '';
 		}
 
-		// if (!state.diets.length) {
-		// 	error.diets = 'Add at least one diet';
-		// }
 		return error;
 	}
 
 	function handleChange(e) {
 		e.preventDefault();
+
 		setData((prevState) => {
 			const newState = {
 				...prevState,
 				[e.target.name]: e.target.value
 			};
+
 			setError(validate(newState));
 
 			return newState;
 		});
 	}
-	// const [diet, setDiet] = useState([]);
-	function dietsOnChange(e) {
-		// e.preventDefault();
-		setData({ ...data, diets: [...data.diets, e.target.value] });
-		setError(validate({ ...data, diets: [...data.diets, e.target.value] }));
+
+	function handleCheckBox(e) {
+		let newArray = data.diets;
+		let find = newArray.indexOf(e.target.value);
+
+		if (find >= 0) {
+			newArray.splice(find, 1);
+		} else {
+			newArray.push(e.target.value);
+		}
+
+		setData({
+			...data,
+			diets: newArray
+		});
+		const validations = validate(data);
+		setError(validations);
 	}
 
 	const handleOnSubmit = async (e) => {
@@ -111,37 +124,35 @@ export default function CreateRecipe() {
 			data.summary &&
 			data.healthScore &&
 			data.steps &&
+			data.diets &&
 			!error.name &&
 			!error.image &&
 			!error.summary &&
 			!error.healthScore &&
-			!error.steps
+			!error.steps &&
+			!error.diets
 		) {
 			setMsgError('');
-			console.log(allDiets);
-			await axios
-				.post('http://localhost:3001/recipes', data)
-				// .then((response) => {
-				// 	console.log(response.data.data[0]);
-				// })
-				.catch((error) => {
-					console.log(error);
-				});
+			dispatch(saveMyRecipe(data));
+			console.log(data);
+			setData({
+				name: '',
+				image: '',
+				summary: '',
+				healthScore: 0,
+				steps: '',
+				diets: []
+			});
+			history.push('/recipes');
 		} else {
 			setMsgError('Complete Form');
 		}
 	};
 	return (
 		<div>
-			{/* {diets.length ? (
-				// console.log(diets);
-				diets.map((e) => <div key={contador++}>{e.name}</div>)
-			) : (
-				<h1>Cargando...</h1>
-			)} */}
 			<NavLink to="/recipes">Back</NavLink>
 			<form>
-				<div key={contador++}>
+				<div key={count++}>
 					<label>Recipe Name: </label>
 					<input
 						type="text"
@@ -152,7 +163,7 @@ export default function CreateRecipe() {
 					<output>{error.name || ''}</output>
 				</div>
 				<br />
-				<div key={contador++}>
+				<div key={count++}>
 					<label>Image: </label>
 					<textarea
 						name="image"
@@ -163,7 +174,7 @@ export default function CreateRecipe() {
 					<output>{error.image || ''}</output>
 				</div>
 				<br />
-				<div key={contador++}>
+				<div key={count++}>
 					<label>Health Score: </label>
 					<input
 						type="number"
@@ -174,7 +185,7 @@ export default function CreateRecipe() {
 					<output>{error.healthScore || ''}</output>
 				</div>
 				<br />
-				<div key={contador++}>
+				<div key={count++}>
 					<label>Summary: </label>
 					<textarea
 						name="summary"
@@ -185,7 +196,7 @@ export default function CreateRecipe() {
 					<output>{error.summary || ''}</output>
 				</div>
 				<br />
-				<div key={contador++}>
+				<div key={count++}>
 					<label>Steps to follow: </label>
 					<textarea
 						name="steps"
@@ -196,27 +207,28 @@ export default function CreateRecipe() {
 					<output>{error.steps || ''}</output>
 				</div>
 				<br />
-				<div key={contador++}>
+				<div key={count++}>
 					<label>Select/s type diet: </label>
-					<select
-						name="diets"
-						defaultValue="Select option"
-						// multiple
-						onChange={dietsOnChange}
-					>
-						<option disabled="disabled" value="Select option">
-							Select the diets availables for this recipe
-						</option>
-						{allDiets &&
-							allDiets.map((d) => <option value={d.name}>{d.name}</option>)}
-					</select>
-					{/* "gluten free", "ketogenic", "vegetarian", "dairy free", "lacto ovo
-					vegetarian", "vegan", "pescatarian", "paleolithic", "primal", "fodmap
-					friendly", "whole 30", */}
+					{allDiets &&
+						allDiets.map((diet) => {
+							return (
+								<div key={diet.id}>
+									<input
+										type="checkbox"
+										name="diets"
+										id={diet.name}
+										value={diet.name}
+										selected={data.diets.includes(diet.name)}
+										onChange={handleCheckBox}
+									/>
+									<label htmlFor={diet.name}>{diet.name.toUpperCase()}</label>
+								</div>
+							);
+						})}
 				</div>
 				<output>{error.diets || ''}</output>
 				<br />
-				<div key={contador++}>
+				<div key={count++}>
 					<input type="submit" value="SUBMIT" onClick={handleOnSubmit} />
 					<br />
 					<output>{msgError}</output>
@@ -225,10 +237,3 @@ export default function CreateRecipe() {
 		</div>
 	);
 }
-
-// name: '',
-// 		image: '',
-// 		summary: '',
-// 		healthScore: 0,
-// 		steps: ''
-// 		// diets: '',
