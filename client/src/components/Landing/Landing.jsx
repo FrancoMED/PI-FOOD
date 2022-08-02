@@ -1,11 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './Landing.css';
 
 function Landing() {
 	return (
-		<div key="landing">
-			<h1>Welcome</h1>
-			<NavLink to="/recipes">START</NavLink>
+		<div className="image">
+			<div key="landing">
+				{/* <h1>Welcome</h1> */}
+				<NavLink className="fancy-btn" to="/recipes">
+					START
+				</NavLink>
+			</div>
 		</div>
 	);
 }

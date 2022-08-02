@@ -1,0 +1,55 @@
+/* html,
+body {
+	height: 100%;
+}
+body {
+	text-align: center;
+	background-image: url('./menu2.jpg');
+	height: 100vh;
+	width: 100vw;
+	background-size: cover;
+} */
+
+.image {
+	background-image: url('./menu2.jpg');
+	height: 100vh;
+	width: 100vw;
+	background-size: cover;
+}
+
+.fancy-btn {
+	display: inline-block;
+	position: relative;
+	padding: 50px 50px;
+	border: 2px solid #fda;
+	color: rgb(255, 194, 170);
+	font-family: 'Dancing Script', serif;
+	font-style: italic;
+	font-size: 30px;
+	text-decoration: none;
+	margin: 20px auto;
+	transition: color 0.4s;
+	top: 200px;
+}
+.fancy-btn:after {
+	content: ' ';
+	border: 2px solid rgba(0, 0, 0, 0);
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	transition: all 0.4s;
+}
+.fancy-btn:hover {
+	color: #eee;
+}
+.fancy-btn:hover:after {
+	border: 2px solid #fda;
+	width: calc(100% - 10px);
+	height: calc(100% + 10px);
+}

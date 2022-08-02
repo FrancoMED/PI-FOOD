@@ -7,7 +7,7 @@ export default function CreateRecipe() {
 	let count = 1;
 
 	const history = useHistory();
-	const allDiets = useSelector((state) => state.allDiets);
+	const all_diets = useSelector((state) => state.all_diets);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -209,8 +209,8 @@ export default function CreateRecipe() {
 				<br />
 				<div key={count++}>
 					<label>Select/s type diet: </label>
-					{allDiets &&
-						allDiets.map((diet) => {
+					{all_diets &&
+						all_diets.map((diet) => {
 							return (
 								<div key={diet.id}>
 									<input

@@ -1,11 +1,24 @@
 const { Router } = require('express');
 const router = Router();
-const uuid = require('uuid');
 const { apiData, allData, dbData } = require('../controllers/Recipes_C.js');
 
 require('dotenv').config();
-const { API_KEY, API_KEY1, API_KEY2, API_KEY3, API_KEY4, API_KEY5 } =
-	process.env;
+const {
+	API_KEY,
+	API_KEY1,
+	API_KEY2,
+	API_KEY3,
+	API_KEY4,
+	API_KEY5,
+	API_KEY6,
+	API_KEY7,
+	API_KEY8,
+	API_KEY9,
+	API_KEY10,
+	API_KEY11,
+	API_KEY12,
+	API_KEY13
+} = process.env;
 
 const { Recipe, Diet } = require('../db');
 
@@ -66,7 +79,7 @@ router.get('/:id', async (req, res, next) => {
 			}
 		} else {
 			let apiDetail = await axios.get(
-				`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY5}&addRecipeInformation=true`
+				`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}&addRecipeInformation=true`
 			);
 			// .catch((error) => next(error));
 			if (apiDetail.data) {

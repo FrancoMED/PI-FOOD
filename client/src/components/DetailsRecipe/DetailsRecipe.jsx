@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
-import { recipeDetail, clearPage } from '../../redux/actions/actions.js';
+import { recipeDetail, clearDetails } from '../../redux/actions/actions.js';
 
 function DetailsRecipe() {
 	const { id } = useParams();
@@ -13,7 +13,7 @@ function DetailsRecipe() {
 		dispatch(recipeDetail(id));
 
 		return () => {
-			dispatch(clearPage());
+			dispatch(clearDetails());
 		};
 	}, [dispatch, id]);
 

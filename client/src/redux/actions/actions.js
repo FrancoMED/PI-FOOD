@@ -2,10 +2,12 @@ import axios from 'axios';
 
 export const ALL_RECIPES = 'ALL_RECIPES';
 export const RECIPE_DETAIL = 'RECIPE_DETAIL';
+export const CLEAR_RECIPES = 'CLEAR_RECIPES';
 export const CLEAR_DETAILS = 'CLEAR_DETAILS';
 export const SEARCH_RECIPE = 'SEARCH_RECIPE';
 export const GET_DIETS = 'GET_DIETS';
 export const SAVE_MY_RECIPE = 'SAVE_MY_RECIPE';
+export const SORT_RECIPES = 'SORT_RECIPES';
 export const FILTER_RECIPES = 'FILTER_RECIPES';
 
 const LOCALHOST = 'http://localhost:3001/';
@@ -30,7 +32,11 @@ export function recipeDetail(id) {
 	};
 }
 
-export function clearPage() {
+export function clearRecipes() {
+	return { type: CLEAR_RECIPES };
+}
+
+export function clearDetails() {
 	return { type: CLEAR_DETAILS };
 }
 
@@ -62,4 +68,8 @@ export const saveMyRecipe = (newRecipe) => {
 		dispatch({ type: SAVE_MY_RECIPE, payload: response.data });
 		alert(response.data.message);
 	};
+};
+
+export const sortRecipes = (order) => {
+	return { type: SORT_RECIPES, payload: order };
 };

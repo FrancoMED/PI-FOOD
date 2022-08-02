@@ -1,15 +1,20 @@
 import React, { useEffect } from 'react';
+import Sort from '../Sort/Sort.jsx';
 import Pagination from '../Pagination/Pagination.jsx';
 import Card from '../Card/Card.jsx';
 import { useSelector, useDispatch } from 'react-redux';
-import { allRecipes } from '../../redux/actions/actions.js';
+import { allRecipes, clearRecipes } from '../../redux/actions/actions.js';
 
 export default function Home() {
 	const dispatch = useDispatch();
-	const recipes = useSelector((state) => state.recipes);
+	const recipes = useSelector((state) => state.current_recipes);
+	// const all_diets = useSelector((state) => state.all_diets);
 
 	useEffect(() => {
 		dispatch(allRecipes());
+		return () => {
+			dispatch(clearRecipes());
+		};
 	}, [dispatch]);
 
 	function handleClick(e) {
@@ -22,24 +27,15 @@ export default function Home() {
 			<button onClick={handleClick}>Refresh recipes</button>
 			{recipes.length ? (
 				<>
+					<Sort />
 					<Pagination
 						data={recipes}
 						RenderComponent={Card}
-						pageLimit={3}
+						pageLimit={5}
 						dataLimit={9}
 					/>
 				</>
 			) : (
-				// recipes.map((food) => (
-				// 	<div key={food.id}>
-				// 		<Card
-				// 			id={food.id}
-				// 			name={food.name}
-				// 			image={food.image}
-				// 			diets={food.diets}
-				// 		/>
-				// 	</div>
-				// ))
 				<h1>Cargando...</h1>
 			)}
 		</>
