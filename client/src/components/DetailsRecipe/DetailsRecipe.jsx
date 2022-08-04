@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { recipeDetail, clearDetails } from '../../redux/actions/actions.js';
+import './DetailsRecipe.css';
 
 function DetailsRecipe() {
 	const { id } = useParams();
@@ -23,16 +24,14 @@ function DetailsRecipe() {
 				<h1>{recipe_detail.message}</h1>
 			) : recipe_detail.id ? (
 				<>
-					<div key={recipe_detail.id}>
-						<NavLink to="/recipes">Back</NavLink>
-						<h1>{recipe_detail.name}</h1>
-						<span>Types diets: {recipe_detail.diets}</span>
-						<br />
-						<br />
-						<span>HealthScore: {recipe_detail.healthScore}</span>
-						<br />
-						<br />
-						<span>Summary: {recipe_detail.summary}</span>
+					<div className="detailContainer" key={recipe_detail.id}>
+						<h1 className="title"> {recipe_detail.name}</h1>
+						<span className="primaryText">
+							Types diets: {recipe_detail.diets}
+						</span>
+						<span className="primaryText">
+							HealthScore: {recipe_detail.healthScore}
+						</span>
 						<br />
 						<br />
 						<img
@@ -41,11 +40,20 @@ function DetailsRecipe() {
 						/>
 						<br />
 						<br />
-						<span>Steps by steps: {recipe_detail.steps}</span>
+						<span className="secondText">Summary: {recipe_detail.summary}</span>
+						<br />
+						<br />
+
+						<span className="secondText">
+							Steps by steps: {recipe_detail.steps}
+						</span>
 					</div>
 				</>
 			) : (
-				<h1>CARGANDO...</h1>
+				<img
+					src="https://i.pinimg.com/originals/c4/cb/9a/c4cb9abc7c69713e7e816e6a624ce7f8.gif"
+					alt="NOT FOUND"
+				/>
 			)}
 		</>
 	);

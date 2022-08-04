@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
+import SearchBar from '../SearchBar/SearchBar.jsx';
 import Sort from '../Sort/Sort.jsx';
 import Pagination from '../Pagination/Pagination.jsx';
 import Card from '../Card/Card.jsx';
 import { useSelector, useDispatch } from 'react-redux';
 import { allRecipes, clearRecipes } from '../../redux/actions/actions.js';
+import './Home.css';
 
 export default function Home() {
 	const dispatch = useDispatch();
@@ -17,17 +19,13 @@ export default function Home() {
 		};
 	}, [dispatch]);
 
-	function handleClick(e) {
-		e.preventDefault();
-		dispatch(allRecipes());
-	}
-
 	return (
-		<>
-			<button onClick={handleClick}>Refresh recipes</button>
+		<div className="menu">
 			{recipes.length ? (
 				<>
+					<SearchBar />
 					<Sort />
+
 					<Pagination
 						data={recipes}
 						RenderComponent={Card}
@@ -36,8 +34,11 @@ export default function Home() {
 					/>
 				</>
 			) : (
-				<h1>Cargando...</h1>
+				<img
+					src="https://i.pinimg.com/originals/c4/cb/9a/c4cb9abc7c69713e7e816e6a624ce7f8.gif"
+					alt="NOT FOUND"
+				/>
 			)}
-		</>
+		</div>
 	);
 }

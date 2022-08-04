@@ -23,7 +23,7 @@ const { Diet } = require('./src/db.js');
 const { preload } = require('./src/controllers/Diets_C.js');
 
 // Syncing all the models at once.
-conn.sync({ force: false }).then(async () => {
+conn.sync({ force: true }).then(async () => {
 	const aux = await Diet.findAll();
 	if (!aux.length) {
 		await preload();

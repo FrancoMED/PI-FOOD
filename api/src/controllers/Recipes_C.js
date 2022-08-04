@@ -15,14 +15,16 @@ const {
 	API_KEY10,
 	API_KEY11,
 	API_KEY12,
-	API_KEY13
+	API_KEY13,
+	API_KEY14,
+	API_KEY15
 } = process.env;
 
 const { Recipe, Diet } = require('../db');
 
 const apiData = async () => {
 	const apiFoods = await axios.get(
-		`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
+		`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY12}&addRecipeInformation=true&number=100`
 	);
 	if (apiFoods) {
 		const mapApi = apiFoods.data.results.map((food) => {

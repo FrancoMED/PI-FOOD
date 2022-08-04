@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { searchRecipe } from '../../redux/actions/actions.js';
 import { useDispatch } from 'react-redux';
+import './SearchBar.css';
 
 export default function SearchBar() {
 	const [name, setName] = useState('');
-	const [error, setError] = useState('');
 
 	const dispatch = useDispatch();
 
@@ -18,17 +18,27 @@ export default function SearchBar() {
 		if (name !== '') {
 			dispatch(searchRecipe(name));
 			setName('');
-			setError('');
-		} else {
-			setError('write a recipe');
 		}
 	}
 
 	return (
-		<div>
-			<input type="text" name="recipe" value={name} onChange={handleChange} />
-			<input type="submit" value="SEARCH" onClick={handleOnSubmit} />
-			<output>{error}</output>
+		<div className="search-box">
+			<button
+				type="submit"
+				value="SEARCH"
+				onClick={handleOnSubmit}
+				className="btn-search"
+			>
+				S
+			</button>
+			<input
+				type="text"
+				name="recipe"
+				value={name}
+				onChange={handleChange}
+				className="input-search"
+				placeholder="Write a Recipe..."
+			/>
 		</div>
 	);
 }

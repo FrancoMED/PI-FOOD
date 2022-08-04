@@ -17,7 +17,9 @@ const {
 	API_KEY10,
 	API_KEY11,
 	API_KEY12,
-	API_KEY13
+	API_KEY13,
+	API_KEY14,
+	API_KEY15
 } = process.env;
 
 const { Recipe, Diet } = require('../db');
@@ -79,7 +81,7 @@ router.get('/:id', async (req, res, next) => {
 			}
 		} else {
 			let apiDetail = await axios.get(
-				`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}&addRecipeInformation=true`
+				`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY12}&addRecipeInformation=true`
 			);
 			// .catch((error) => next(error));
 			if (apiDetail.data) {

@@ -1,18 +1,70 @@
-.post {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-	max-width: 400px;
-	margin: 20px auto;
-	padding: 15px 10px;
-	background: #fff;
+:root {
+	--transition-time: 0.5s;
 }
 
-small {
-	border: 2px solid #777;
-	border-radius: 7px;
-	padding: 5px 12px;
-	color: #777;
+.cardContainer {
+	display: flex;
+	background-color: white;
+	width: 250px;
+	height: 310px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	transition: var(--transition-time);
+}
+
+.imgContainer {
+	display: flex;
+	justify-content: center;
+	padding: 0px;
+	margin: 0px;
+}
+
+.imgContainer img {
+	border-radius: 5px;
+	width: 250px;
+	height: 150px;
+	transition: var(--transition-time);
+	position: relative;
+}
+
+.cardContainer:hover {
+	background: linear-gradient(rgb(255, 255, 255, 1) 80%, rgb(0, 255, 255));
+	background-repeat: no-repeat;
+	box-shadow: 0px 30px 28px -8px rgba(0, 0, 0, 0.541);
+	transform: scale(1.1, 1.1);
+	transition: var(--transition-time);
+}
+
+.nameContainer {
+	margin: 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: rgb(22, 27, 68);
+}
+.nameContainer h3 {
+	font-size: 20px;
+	max-width: 250px;
+	max-height: 50px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.dietsContainer {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: center;
+}
+
+.dietsContainer h6 {
+	font-family: 'Dancing Script', serif;
+	font-size: 13px;
+	max-width: 230px;
+	max-height: 50px;
+	margin-top: 25px;
+	color: rgb(22, 27, 68);
+}
+
+.NavLink {
+	text-decoration: none;
 }

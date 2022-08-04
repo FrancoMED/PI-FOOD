@@ -1,0 +1,31 @@
+.detailContainer {
+	background-image: url('https://fondosmil.com/fondo/44850.jpg');
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+}
+
+.title {
+	font-size: 50px;
+	font-family: 'Dancing Script', serif;
+	font-style: italic;
+	color: #00a3a3;
+}
+
+.primaryText {
+	display: flex;
+	justify-content: space-around;
+	flex-flow: row wrap-reverse;
+	font-size: 25px;
+	font-family: 'Dancing Script', serif;
+	font-style: italic;
+	color: #a38500;
+}
+
+.secondText {
+	display: flex;
+	font-size: 18px;
+	font-family: 'Dancing Script', serif;
+	font-style: italic;
+	color: #f5f5f5;
+}

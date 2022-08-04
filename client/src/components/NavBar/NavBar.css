@@ -1,0 +1,27 @@
+.NavContainer ul {
+	display: flex;
+	margin: auto;
+	padding: 10px 0;
+	justify-content: space-between;
+	align-items: center;
+	width: 80%;
+}
+
+.NavContainer img {
+	display: flex;
+	/* justify-content: flex-start; */
+	width: 25vh;
+}
+
+.NavContainer ul li {
+	list-style: none;
+	color: #0045ad;
+	text-decoration: none;
+	font-family: 'Dancing Script', serif;
+	font-size: 20px;
+	position: relative;
+}
+
+.NavLink {
+	text-decoration: none;
+}

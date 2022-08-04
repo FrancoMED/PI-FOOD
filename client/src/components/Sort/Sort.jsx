@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { sortRecipes } from '../../redux/actions/actions';
+import './Sort.css';
 
 export default function Sort() {
 	const dispatch = useDispatch();
@@ -12,17 +13,19 @@ export default function Sort() {
 	}
 
 	return (
-		<select name="SORT" defaultValue="default" onChange={handleChange}>
-			<option key="default" hidden value="default" defaultValue="default">
-				SORT
-			</option>
-			{optionSort.map((option) => {
-				return (
-					<option key={option} value={option}>
-						{option}
-					</option>
-				);
-			})}
-		</select>
+		<div className="select">
+			<select name="SORT" defaultValue="default" onChange={handleChange}>
+				<option key="default" hidden value="default" defaultValue="default">
+					SORT
+				</option>
+				{optionSort.map((option) => {
+					return (
+						<option key={option} value={option}>
+							{option}
+						</option>
+					);
+				})}
+			</select>
+		</div>
 	);
 }

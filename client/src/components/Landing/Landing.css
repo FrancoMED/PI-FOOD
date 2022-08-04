@@ -1,23 +1,11 @@
-/* html,
-body {
-	height: 100%;
-}
-body {
-	text-align: center;
-	background-image: url('./menu2.jpg');
-	height: 100vh;
-	width: 100vw;
-	background-size: cover;
-} */
-
 .image {
-	background-image: url('./menu2.jpg');
+	background-image: url('./menu.jpg');
 	height: 100vh;
 	width: 100vw;
 	background-size: cover;
 }
 
-.fancy-btn {
+.btnLanding {
 	display: inline-block;
 	position: relative;
 	padding: 50px 50px;
@@ -31,7 +19,7 @@ body {
 	transition: color 0.4s;
 	top: 200px;
 }
-.fancy-btn:after {
+.btnLanding:after {
 	content: ' ';
 	border: 2px solid rgba(0, 0, 0, 0);
 	display: inline-block;
@@ -45,10 +33,10 @@ body {
 	margin: auto;
 	transition: all 0.4s;
 }
-.fancy-btn:hover {
+.btnLanding:hover {
 	color: #eee;
 }
-.fancy-btn:hover:after {
+.btnLanding:hover:after {
 	border: 2px solid #fda;
 	width: calc(100% - 10px);
 	height: calc(100% + 10px);

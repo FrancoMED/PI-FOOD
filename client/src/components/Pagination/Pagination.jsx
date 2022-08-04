@@ -40,13 +40,7 @@ export default function Pagination({
 
 	const getPaginationGroup = () => {
 		let start = Math.floor((currentPage - 1) / pageLimit) * pageLimit;
-		let prueba = new Array(pageLimit).fill().map((_, idx) => {
-			let sum = start + idx + 1;
-			// if (sum <= pages) {
-			return sum;
-			// } else {
-			// }
-		});
+		let prueba = new Array(pageLimit).fill().map((_, idx) => start + idx + 1);
 
 		return prueba;
 	};
@@ -55,7 +49,9 @@ export default function Pagination({
 		<div>
 			<div className="dataContainer">
 				{getPaginatedData().map((d, idx) => (
-					<RenderComponent key={idx} data={d} />
+					<div key={idx} className="Cards">
+						<RenderComponent key={idx} data={d} />
+					</div>
 				))}
 			</div>
 			<div className="pagination">
@@ -66,7 +62,6 @@ export default function Pagination({
 					prev
 				</button>
 
-				{/* show page numbers */}
 				{getPaginationGroup().map((number, index) => {
 					if (number <= pages) {
 						return (
@@ -85,7 +80,6 @@ export default function Pagination({
 					}
 				})}
 
-				{/* next button */}
 				<button
 					onClick={goToNextPage}
 					className={`next ${currentPage === pages ? 'disabled' : ''}`}

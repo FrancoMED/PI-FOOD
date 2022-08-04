@@ -1,0 +1,134 @@
+.menuForm {
+	background-image: url('./table.png');
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+.btnBack {
+	display: flex;
+	position: relative;
+	margin-left: 600px;
+	font-weight: 600;
+	border-radius: 3px;
+	padding: 20px 30px;
+	border: 0;
+	color: #fff;
+	background: #002bb9;
+	line-height: 1.15;
+	font-size: 16px;
+}
+.btnBack:hover {
+	color: #000000;
+	transition: all 0.1s ease;
+	box-shadow: 0 0 0 0 #fff, 0 0 0 3px #000000;
+}
+
+.form {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	width: 80%;
+	position: relative;
+}
+
+.infoContainer {
+	position: relative;
+	margin-top: 30px;
+}
+
+.infoContainer label {
+	display: flex;
+	font-family: 'Montserrat', sans-serif;
+	font-style: italic;
+	font-size: 20px;
+	color: rgb(255, 255, 255);
+}
+
+.text,
+.number {
+	display: flex;
+	position: relative;
+	font-family: 'Montserrat', sans-serif;
+	font-style: italic;
+	border: 0;
+	border-radius: 3px;
+	line-height: 1.4;
+	color: rgb(255, 255, 255);
+	background: rgba(0, 0, 0, 0.7);
+	box-shadow: inset #168600 0 0 0 2px;
+	font-size: 20px;
+}
+
+.textarea {
+	display: flex;
+	position: relative;
+	padding: 9px 12px;
+	font-family: 'Montserrat', sans-serif;
+	font-style: italic;
+	width: 50%;
+	border: 0;
+	border-radius: 3px;
+	line-height: 1.4;
+	color: rgb(255, 255, 255);
+	box-shadow: inset #168600 0 0 0 2px;
+	background: rgba(0, 0, 0, 0.7);
+	font-size: 16px;
+}
+
+.spanError {
+	display: flex;
+	position: relative;
+	font-family: 'Montserrat', sans-serif;
+	font-style: italic;
+	font-size: 18px;
+	color: #000000;
+	text-shadow: white 0.1em 0.1em 0.2em;
+}
+
+.checkboxContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	color: rgb(255, 255, 255);
+	font-size: 20px;
+}
+
+.btnContainer {
+	position: fixed;
+	top: 50%;
+	left: 60%;
+}
+
+.save {
+	display: flex;
+	position: fixed;
+	margin-left: 50px;
+	font-weight: 600;
+	border-radius: 3px;
+	padding: 20px 30px;
+	border: 0;
+	color: #fff;
+	background: #008a1e;
+	line-height: 1.15;
+	font-size: 16px;
+}
+.save:hover {
+	color: #000000;
+	transition: all 0.1s ease;
+	box-shadow: 0 0 0 0 #fff, 0 0 0 3px #000000;
+}
+
+.errorSumbit {
+	display: flex;
+	position: fixed;
+	font-family: 'Montserrat', sans-serif;
+	font-style: italic;
+	font-size: 30px;
+	color: #000000;
+	text-shadow: white 0.1em 0.1em 0.2em;
+	margin: 50px 5px;
+}

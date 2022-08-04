@@ -10,8 +10,8 @@ function App() {
 		<div className="App">
 			<Route path="/" exact component={Landing} />
 			<Route path="/recipes" component={NavBar} />
-			<Route path="/recipes" component={Home} />
-			<Route path="/details/:id" component={DetailsRecipe} />
+			<Route path="/recipes" exact component={Home} />
+			<Route path="/recipes/:id" component={DetailsRecipe} />
 			<Route path="/create" component={CreateRecipe} />
 		</div>
 	);

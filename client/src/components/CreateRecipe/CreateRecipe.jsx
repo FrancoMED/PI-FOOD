@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getDiets, saveMyRecipe } from '../../redux/actions/actions.js';
+import './CreateRecipe.css';
 
 export default function CreateRecipe() {
 	let count = 1;
 
-	const history = useHistory();
 	const all_diets = useSelector((state) => state.all_diets);
 	const dispatch = useDispatch();
 
@@ -143,95 +143,118 @@ export default function CreateRecipe() {
 				steps: '',
 				diets: []
 			});
-			history.push('/recipes');
 		} else {
 			setMsgError('Complete Form');
 		}
 	};
 	return (
-		<div>
-			<NavLink to="/recipes">Back</NavLink>
+		<div className="menuForm">
+			<NavLink className="NavLink " to="/recipes">
+				<input className="btnBack" type="submit" value="MENU" />
+			</NavLink>
 			<form>
-				<div key={count++}>
-					<label>Recipe Name: </label>
-					<input
-						type="text"
-						name="name"
-						value={data.name}
-						onChange={handleChange}
-					/>
-					<output>{error.name || ''}</output>
-				</div>
-				<br />
-				<div key={count++}>
-					<label>Image: </label>
-					<textarea
-						name="image"
-						rows="3"
-						value={data.image}
-						onChange={handleChange}
-					/>
-					<output>{error.image || ''}</output>
-				</div>
-				<br />
-				<div key={count++}>
-					<label>Health Score: </label>
-					<input
-						type="number"
-						name="healthScore"
-						value={data.healthScore}
-						onChange={handleChange}
-					/>
-					<output>{error.healthScore || ''}</output>
-				</div>
-				<br />
-				<div key={count++}>
-					<label>Summary: </label>
-					<textarea
-						name="summary"
-						rows="3"
-						value={data.summary}
-						onChange={handleChange}
-					/>
-					<output>{error.summary || ''}</output>
-				</div>
-				<br />
-				<div key={count++}>
-					<label>Steps to follow: </label>
-					<textarea
-						name="steps"
-						rows="3"
-						value={data.steps}
-						onChange={handleChange}
-					/>
-					<output>{error.steps || ''}</output>
-				</div>
-				<br />
-				<div key={count++}>
-					<label>Select/s type diet: </label>
-					{all_diets &&
-						all_diets.map((diet) => {
-							return (
-								<div key={diet.id}>
-									<input
-										type="checkbox"
-										name="diets"
-										id={diet.name}
-										value={diet.name}
-										selected={data.diets.includes(diet.name)}
-										onChange={handleCheckBox}
-									/>
-									<label htmlFor={diet.name}>{diet.name.toUpperCase()}</label>
-								</div>
-							);
-						})}
-				</div>
-				<output>{error.diets || ''}</output>
-				<br />
-				<div key={count++}>
-					<input type="submit" value="SUBMIT" onClick={handleOnSubmit} />
+				<div className="form">
+					<div className="infoContainer" key={count++}>
+						<label>Recipe Name: </label>
+						<br />
+						<input
+							type="text"
+							name="name"
+							value={data.name}
+							onChange={handleChange}
+							className="text"
+						/>
+						<br />
+						<span className="spanError">{error.name || ''}</span>
+					</div>
 					<br />
-					<output>{msgError}</output>
+					<div className="infoContainer" key={count++}>
+						<label>Image: </label>
+
+						<textarea
+							name="image"
+							rows="3"
+							value={data.image}
+							onChange={handleChange}
+							className="textarea"
+						/>
+
+						<span className="spanError">{error.image || ''}</span>
+					</div>
+					<br />
+					<div className="infoContainer" key={count++}>
+						<label>Health Score: </label>
+						<br />
+						<input
+							type="number"
+							name="healthScore"
+							value={data.healthScore}
+							onChange={handleChange}
+							className="number"
+						/>
+						<br />
+						<span className="spanError">{error.healthScore || ''}</span>
+					</div>
+					<br />
+					<div className="infoContainer" key={count++}>
+						<label>Summary: </label>
+						<br />
+						<textarea
+							name="summary"
+							rows="3"
+							value={data.summary}
+							onChange={handleChange}
+							className="textarea"
+						/>
+						<br />
+						<span className="spanError">{error.summary || ''}</span>
+					</div>
+					<br />
+					<div className="infoContainer" key={count++}>
+						<label>Steps to follow: </label>
+						<br />
+						<textarea
+							name="steps"
+							rows="3"
+							value={data.steps}
+							onChange={handleChange}
+							className="textarea"
+						/>
+						<br />
+						<span className="spanError">{error.steps || ''}</span>
+					</div>
+					<br />
+					<div className="checkboxContainer" key={count++}>
+						<label>Select/s type diet: </label>
+						{all_diets &&
+							all_diets.map((diet) => {
+								return (
+									<div key={diet.id}>
+										<input
+											type="checkbox"
+											name="diets"
+											id={diet.name}
+											value={diet.name}
+											selected={data.diets.includes(diet.name)}
+											onChange={handleCheckBox}
+										/>
+										<label htmlFor={diet.name}>{diet.name.toUpperCase()}</label>
+									</div>
+								);
+							})}
+					</div>
+					<span className="spanError">{error.diets || ''}</span>
+					<br />
+					<div className="btnContainer" key={count++}>
+						<input
+							className="save"
+							type="submit"
+							value="SAVE"
+							onClick={handleOnSubmit}
+						/>
+						<br />
+						<span className="errorSumbit">{msgError}</span>
+					</div>
 				</div>
 			</form>
 		</div>
