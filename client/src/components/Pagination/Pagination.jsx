@@ -15,9 +15,9 @@ export default function Pagination({
 		setPages(Math.ceil(data.length / dataLimit));
 	}, [data, dataLimit]);
 
-	// useEffect(() => {
-	// 	window.scrollTo({ behavior: 'smooth', top: '0px' });
-	// }, [currentPage]);
+	useEffect(() => {
+		window.scrollTo({ behavior: 'smooth', top: '0px' });
+	}, [currentPage]);
 
 	function goToNextPage() {
 		setCurrentPage((page) => page + 1);
@@ -59,7 +59,7 @@ export default function Pagination({
 					onClick={goToPreviousPage}
 					className={`prev ${currentPage === 1 ? 'disabled' : ''}`}
 				>
-					prev
+					<b>prev</b>
 				</button>
 
 				{getPaginationGroup().map((number, index) => {
@@ -84,7 +84,7 @@ export default function Pagination({
 					onClick={goToNextPage}
 					className={`next ${currentPage === pages ? 'disabled' : ''}`}
 				>
-					next
+					<b>next</b>
 				</button>
 			</div>
 		</div>

@@ -20,7 +20,7 @@ export default function Home() {
 	}, [dispatch]);
 
 	return (
-		<div className="menu">
+		<div className={`menu ${recipes.length ? 'active' : null}`}>
 			{recipes.length ? (
 				<>
 					<SearchBar />
@@ -34,10 +34,12 @@ export default function Home() {
 					/>
 				</>
 			) : (
-				<img
-					src="https://i.pinimg.com/originals/c4/cb/9a/c4cb9abc7c69713e7e816e6a624ce7f8.gif"
-					alt="NOT FOUND"
-				/>
+				<div className="img-loading">
+					<img
+						src="https://i.pinimg.com/originals/c4/cb/9a/c4cb9abc7c69713e7e816e6a624ce7f8.gif"
+						alt="NOT FOUND"
+					/>
+				</div>
 			)}
 		</div>
 	);

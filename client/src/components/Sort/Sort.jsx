@@ -13,19 +13,21 @@ export default function Sort() {
 	}
 
 	return (
-		<div className="select">
-			<select name="SORT" defaultValue="default" onChange={handleChange}>
-				<option key="default" hidden value="default" defaultValue="default">
-					SORT
-				</option>
-				{optionSort.map((option) => {
-					return (
-						<option key={option} value={option}>
-							{option}
-						</option>
-					);
-				})}
-			</select>
+		<div className="global-select">
+			<div className="select">
+				<select name="SORT" defaultValue="default" onChange={handleChange}>
+					<option key="default" hidden value="default" defaultValue="default">
+						SORT
+					</option>
+					{optionSort.map((option) => {
+						return (
+							<option key={option} value={option}>
+								{option}
+							</option>
+						);
+					})}
+				</select>
+			</div>
 		</div>
 	);
 }

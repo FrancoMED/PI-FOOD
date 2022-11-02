@@ -1,21 +1,20 @@
 :root {
-	--darkgray: #000000;
+	--darkgray: transparent;
 }
 
 select {
-	/* Reset Select */
+	flex: 1;
+	font-family: 'Dancing Script', serif;
+	font-weight: bold;
 	appearance: none;
 	outline: 0;
-	border: 0;
 	box-shadow: none;
-	/* Personalize */
-	flex: 1;
 	padding: 0 1em;
-	color: rgb(0, 255, 255);
+	color: rgb(5, 0, 0);
 	background-color: var(--darkgray);
-	background-image: none;
+	border: 2px rgb(0, 0, 0) solid;
 	cursor: pointer;
-	font-weight: bold;
+	transition: 0.6s all ease;
 }
 /* Remove IE arrow */
 select::-ms-expand {
@@ -23,13 +22,9 @@ select::-ms-expand {
 }
 /* Custom Select wrapper */
 .select {
-	/* margin-top: 30px;
-	margin-left: 85px; */
-	margin: 20px 135px;
-	position: relative;
-
 	display: flex;
-	width: 20em;
+	position: relative;
+	width: 12em;
 	height: 3em;
 	border-radius: 0.25em;
 	overflow: hidden;
@@ -40,12 +35,23 @@ select::-ms-expand {
 	position: absolute;
 	top: 0;
 	right: 0;
-	padding: 1em;
-	background-color: #34495e;
-	transition: 0.25s all ease;
+	padding: 0.7em 1em;
+	background-color: transparent;
+	border: 2px rgb(0, 0, 0) solid;
 	pointer-events: none;
+	transition: 0.6s all ease;
 }
 /* Transition */
 .select:hover::after {
 	color: #00eeff;
+}
+
+select:hover {
+	color: #00eeff;
+}
+
+.global-select {
+	display: flex;
+	justify-content: flex-end;
+	margin: -50px 125px 50px 0px;
 }

@@ -134,7 +134,6 @@ export default function CreateRecipe() {
 		) {
 			setMsgError('');
 			dispatch(saveMyRecipe(data));
-			console.log(data);
 			setData({
 				name: '',
 				image: '',

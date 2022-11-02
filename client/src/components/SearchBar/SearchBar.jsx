@@ -29,7 +29,10 @@ export default function SearchBar() {
 				onClick={handleOnSubmit}
 				className="btn-search"
 			>
-				S
+				<img
+					src="https://i.ibb.co/wWDjSqV/1-2-removebg-preview.png"
+					alt="not found"
+				/>
 			</button>
 			<input
 				type="text"

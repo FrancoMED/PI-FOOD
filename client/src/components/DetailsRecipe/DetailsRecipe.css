@@ -1,18 +1,35 @@
-.detailContainer {
-	background-image: url('https://fondosmil.com/fondo/44850.jpg');
+.detail-container {
+	/* background-image: url('https://fondosmil.com/fondo/44850.jpg'); */
+	background-image: url('https://i.ibb.co/b7HZyWy/2.jpg');
 	height: 100%;
 	width: 100%;
 	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.img-title-container {
+	display: flex;
+	padding: 30px 20px;
+}
+
+.img-title-container img {
+	display: flex;
+	margin: 10px;
+	border-radius: 10%;
 }
 
 .title {
+	display: flex;
+	margin: 10px;
 	font-size: 50px;
 	font-family: 'Dancing Script', serif;
 	font-style: italic;
-	color: #00a3a3;
+	color: #ffffff;
+	-webkit-text-stroke: 1px rgb(0, 255, 221);
 }
 
-.primaryText {
+.primaryText-container {
 	display: flex;
 	justify-content: space-around;
 	flex-flow: row wrap-reverse;
@@ -20,9 +37,10 @@
 	font-family: 'Dancing Script', serif;
 	font-style: italic;
 	color: #a38500;
+	-webkit-text-stroke: 0.5px rgb(255, 0, 0);
 }
 
-.secondText {
+.secondText-container span {
 	display: flex;
 	font-size: 18px;
 	font-family: 'Dancing Script', serif;

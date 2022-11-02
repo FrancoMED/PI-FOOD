@@ -1,7 +1,7 @@
 .NavContainer ul {
 	display: flex;
 	margin: auto;
-	padding: 10px 0;
+	padding: 0;
 	justify-content: space-between;
 	align-items: center;
 	width: 80%;
@@ -18,7 +18,7 @@
 	color: #0045ad;
 	text-decoration: none;
 	font-family: 'Dancing Script', serif;
-	font-size: 20px;
+	font-size: 25px;
 	position: relative;
 }
 

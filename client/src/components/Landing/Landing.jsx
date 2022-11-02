@@ -6,9 +6,8 @@ function Landing() {
 	return (
 		<div className="image">
 			<div key="landing">
-				{/* <h1>Welcome</h1> */}
 				<NavLink className="btnLanding" to="/recipes">
-					START
+					WELCOME
 				</NavLink>
 			</div>
 		</div>

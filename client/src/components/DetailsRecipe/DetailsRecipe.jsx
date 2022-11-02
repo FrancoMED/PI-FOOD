@@ -24,29 +24,30 @@ function DetailsRecipe() {
 				<h1>{recipe_detail.message}</h1>
 			) : recipe_detail.id ? (
 				<>
-					<div className="detailContainer" key={recipe_detail.id}>
-						<h1 className="title"> {recipe_detail.name}</h1>
-						<span className="primaryText">
-							Types diets: {recipe_detail.diets}
-						</span>
-						<span className="primaryText">
-							HealthScore: {recipe_detail.healthScore}
-						</span>
+					<div className="detail-container" key={recipe_detail.id}>
+						<div className="img-title-container">
+							<img
+								src={recipe_detail.image}
+								alt={`img not found:${recipe_detail.name}`}
+							/>
+							<h1 className="title"> {recipe_detail.name}</h1>
+						</div>
 						<br />
 						<br />
-						<img
-							src={recipe_detail.image}
-							alt={`img not found:${recipe_detail.name}`}
-						/>
+						<div className="primaryText-container">
+							<span>Types diets: {recipe_detail.diets}</span>
+							<span>HealthScore: {recipe_detail.healthScore}</span>
+						</div>
 						<br />
 						<br />
-						<span className="secondText">Summary: {recipe_detail.summary}</span>
+						<div className="secondText-container">
+							<span>Summary: {recipe_detail.summary}</span>
+						</div>
 						<br />
 						<br />
-
-						<span className="secondText">
-							Steps by steps: {recipe_detail.steps}
-						</span>
+						<div className="secondText-container">
+							<span>Steps by steps: {recipe_detail.steps}</span>
+						</div>
 					</div>
 				</>
 			) : (

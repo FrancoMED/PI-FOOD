@@ -74,14 +74,13 @@ router.get('/:id', async (req, res, next) => {
 							: 'does not belong to a diet :('
 					};
 				});
-				console.log(typeof mapDbDetail[0].id);
 				return res.json(mapDbDetail[0]);
 			} else {
 				return res.send({ message: 'ID not found' });
 			}
 		} else {
 			let apiDetail = await axios.get(
-				`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY12}&addRecipeInformation=true`
+				`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY5}&addRecipeInformation=true`
 			);
 			// .catch((error) => next(error));
 			if (apiDetail.data) {
@@ -102,7 +101,6 @@ router.get('/:id', async (req, res, next) => {
 							: 'has no instructions'
 					};
 				});
-				console.log(typeof mapApiRecipe[0].id);
 				return res.json(mapApiRecipe[0]);
 			} else {
 				return res.send({ message: 'ID not found' });

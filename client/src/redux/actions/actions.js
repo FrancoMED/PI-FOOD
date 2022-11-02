@@ -53,7 +53,6 @@ export function searchRecipe(name) {
 export function getDiets() {
 	return async function call(dispatch) {
 		let allDiets = await axios.get(`${LOCALHOST}diets`);
-		// console.log(diets.data || 'no existe');
 		return dispatch({
 			type: GET_DIETS,
 			payload: allDiets.data

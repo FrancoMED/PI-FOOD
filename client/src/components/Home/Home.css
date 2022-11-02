@@ -1,7 +1,33 @@
-.menu {
-	background: linear-gradient(rgb(255, 255, 255, 1) 80%, rgb(0, 255, 255));
-	background-repeat: no-repeat;
-	height: 100%;
+.menu.active {
+	background: linear-gradient(
+		to bottom,
+		rgb(255, 255, 255, 1),
+		#0170b9 30%,
+		rgb(0, 0, 0) 95%
+	);
+	/* background-size: cover; */
+	/* background-attachment: fixed; */
+	/* background-repeat: no-repeat; */
+	/* height: 400px; */
 	margin: 0;
-	background-attachment: fixed;
+	/* animation-name: load-menu; */
+	animation-duration: 5s;
+	animation-direction: normal;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+.img-loading {
+	padding: 8% 0%;
+}
+
+@keyframes load-menu {
+	0% {
+		background-image: url('https://previews.123rf.com/images/vizafoto/vizafoto1801/vizafoto180100298/92942723-masa-con-harina-sobre-un-fondo-antiguo-en-una-composici%C3%B3n-con-accesorios-de-cocina.jpg');
+		opacity: 0;
+	}
+	100% {
+		background-image: url('https://previews.123rf.com/images/vizafoto/vizafoto1801/vizafoto180100298/92942723-masa-con-harina-sobre-un-fondo-antiguo-en-una-composici%C3%B3n-con-accesorios-de-cocina.jpg');
+		opacity: 1;
+	}
 }
