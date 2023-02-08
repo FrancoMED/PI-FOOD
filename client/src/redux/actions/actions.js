@@ -10,11 +10,9 @@ export const SAVE_MY_RECIPE = 'SAVE_MY_RECIPE';
 export const SORT_RECIPES = 'SORT_RECIPES';
 export const FILTER_RECIPES = 'FILTER_RECIPES';
 
-const LOCALHOST = 'http://localhost:3001/';
-
 export function allRecipes() {
 	return async function call(dispatch) {
-		let all = await axios.get(`${LOCALHOST}recipes`);
+		let all = await axios.get(`/recipes`);
 		return dispatch({
 			type: ALL_RECIPES,
 			payload: all.data
@@ -24,7 +22,7 @@ export function allRecipes() {
 
 export function recipeDetail(id) {
 	return async function call(dispatch) {
-		let recipe = await axios.get(`${LOCALHOST}recipes/${id}`);
+		let recipe = await axios.get(`/recipes/${id}`);
 		return dispatch({
 			type: RECIPE_DETAIL,
 			payload: recipe.data
@@ -42,7 +40,7 @@ export function clearDetails() {
 
 export function searchRecipe(name) {
 	return async function call(dispatch) {
-		let recipes = await axios.get(`${LOCALHOST}recipes?name=${name}`);
+		let recipes = await axios.get(`/recipes?name=${name}`);
 		return dispatch({
 			type: SEARCH_RECIPE,
 			payload: recipes.data
@@ -52,7 +50,7 @@ export function searchRecipe(name) {
 
 export function getDiets() {
 	return async function call(dispatch) {
-		let allDiets = await axios.get(`${LOCALHOST}diets`);
+		let allDiets = await axios.get(`/diets`);
 		return dispatch({
 			type: GET_DIETS,
 			payload: allDiets.data
@@ -62,7 +60,7 @@ export function getDiets() {
 
 export const saveMyRecipe = (newRecipe) => {
 	return async function (dispatch) {
-		const response = await axios.post(`${LOCALHOST}recipes`, newRecipe);
+		const response = await axios.post(`/recipes`, newRecipe);
 		// newRecipe.id = response.data.id;
 		dispatch({ type: SAVE_MY_RECIPE, payload: response.data });
 		alert(response.data.message);

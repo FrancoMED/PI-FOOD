@@ -80,7 +80,7 @@ router.get('/:id', async (req, res, next) => {
 			}
 		} else {
 			let apiDetail = await axios.get(
-				`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY5}&addRecipeInformation=true`
+				`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY6}&addRecipeInformation=true`
 			);
 			// .catch((error) => next(error));
 			if (apiDetail.data) {
@@ -127,17 +127,6 @@ router.post('/', async (req, res, next) => {
 			});
 			await newRecipe.addDiet(dietsDb);
 		}
-
-		// res.send('Receta creada con exito');
-
-		// diets.map(async (d) => {
-		// 	const dbDiet = await Diet.findOrCreate({
-		// 		where: {
-		// 			name: d
-		// 		}
-		// 	});
-		// 	newRecipe.addDiet(dbDiet[0]);
-		// });
 		const datos = await dbData();
 		res.send({ message: 'new recipe created successfully!', data: datos });
 	} catch (error) {

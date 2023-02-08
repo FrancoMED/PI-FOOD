@@ -1,5 +1,7 @@
 .detail-container {
 	/* background-image: url('https://fondosmil.com/fondo/44850.jpg'); */
+	display: flex;
+	flex-wrap: wrap;
 	background-image: url('https://i.ibb.co/b7HZyWy/2.jpg');
 	height: 100%;
 	width: 100%;
@@ -14,26 +16,26 @@
 }
 
 .img-title-container img {
-	display: flex;
 	margin: 10px;
 	border-radius: 10%;
 }
 
 .title {
 	display: flex;
-	margin: 10px;
-	font-size: 50px;
+	position: relative;
+	flex-flow: column wrap;
+	font-size: 25px;
 	font-family: 'Dancing Script', serif;
 	font-style: italic;
 	color: #ffffff;
 	-webkit-text-stroke: 1px rgb(0, 255, 221);
 }
 
-.primaryText-container {
+.title span {
 	display: flex;
-	justify-content: space-around;
-	flex-flow: row wrap-reverse;
-	font-size: 25px;
+	position: relative;
+	justify-content: center;
+	padding: 10px;
 	font-family: 'Dancing Script', serif;
 	font-style: italic;
 	color: #a38500;

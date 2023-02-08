@@ -30,16 +30,16 @@ function DetailsRecipe() {
 								src={recipe_detail.image}
 								alt={`img not found:${recipe_detail.name}`}
 							/>
-							<h1 className="title"> {recipe_detail.name}</h1>
+							<div className="title">
+								<h1> {recipe_detail.name}</h1>
+								<span>Types diets: {recipe_detail.diets}</span>
+								<br />
+								<span>HealthScore: {recipe_detail.healthScore}</span>
+							</div>
 						</div>
+						{/* <div className="primaryText-container"></div>
 						<br />
-						<br />
-						<div className="primaryText-container">
-							<span>Types diets: {recipe_detail.diets}</span>
-							<span>HealthScore: {recipe_detail.healthScore}</span>
-						</div>
-						<br />
-						<br />
+						<br /> */}
 						<div className="secondText-container">
 							<span>Summary: {recipe_detail.summary}</span>
 						</div>
