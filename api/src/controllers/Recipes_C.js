@@ -2,22 +2,22 @@ const axios = require('axios');
 
 require('dotenv').config();
 const {
-	API_KEY,
-	API_KEY1,
-	API_KEY2,
-	API_KEY3,
-	API_KEY4,
-	API_KEY5,
-	API_KEY6,
-	API_KEY7,
-	API_KEY8,
-	API_KEY9,
-	API_KEY10,
-	API_KEY11,
-	API_KEY12,
-	API_KEY13,
-	API_KEY14,
-	API_KEY15
+	// API_KEY,
+	// API_KEY1,
+	// API_KEY2,
+	// API_KEY3,
+	// API_KEY4,
+	// API_KEY5,
+	API_KEY6
+	// API_KEY7,
+	// API_KEY8,
+	// API_KEY9,
+	// API_KEY10,
+	// API_KEY11,
+	// API_KEY12,
+	// API_KEY13,
+	// API_KEY14,
+	// API_KEY15
 } = process.env;
 
 const { Recipe, Diet } = require('../db');
