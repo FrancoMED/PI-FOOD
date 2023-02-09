@@ -12,7 +12,9 @@ export const FILTER_RECIPES = 'FILTER_RECIPES';
 
 export function allRecipes() {
 	return async function call(dispatch) {
-		let all = await axios.get(`/recipes`);
+		let all = await axios.get(
+			`https://pi-food-production-back.up.railway.app/recipes`
+		);
 		return dispatch({
 			type: ALL_RECIPES,
 			payload: all.data
@@ -22,7 +24,9 @@ export function allRecipes() {
 
 export function recipeDetail(id) {
 	return async function call(dispatch) {
-		let recipe = await axios.get(`/recipes/${id}`);
+		let recipe = await axios.get(
+			`https://pi-food-production-back.up.railway.app/recipes/${id}`
+		);
 		return dispatch({
 			type: RECIPE_DETAIL,
 			payload: recipe.data
@@ -40,7 +44,9 @@ export function clearDetails() {
 
 export function searchRecipe(name) {
 	return async function call(dispatch) {
-		let recipes = await axios.get(`/recipes?name=${name}`);
+		let recipes = await axios.get(
+			`https://pi-food-production-back.up.railway.app/recipes?name=${name}`
+		);
 		return dispatch({
 			type: SEARCH_RECIPE,
 			payload: recipes.data
@@ -50,7 +56,9 @@ export function searchRecipe(name) {
 
 export function getDiets() {
 	return async function call(dispatch) {
-		let allDiets = await axios.get(`/diets`);
+		let allDiets = await axios.get(
+			`https://pi-food-production-back.up.railway.app/diets`
+		);
 		return dispatch({
 			type: GET_DIETS,
 			payload: allDiets.data
@@ -60,7 +68,10 @@ export function getDiets() {
 
 export const saveMyRecipe = (newRecipe) => {
 	return async function (dispatch) {
-		const response = await axios.post(`/recipes`, newRecipe);
+		const response = await axios.post(
+			`https://pi-food-production-back.up.railway.app/recipes`,
+			newRecipe
+		);
 		// newRecipe.id = response.data.id;
 		dispatch({ type: SAVE_MY_RECIPE, payload: response.data });
 		alert(response.data.message);

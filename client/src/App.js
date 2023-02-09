@@ -5,9 +5,9 @@ import NavBar from './components/NavBar/NavBar.jsx';
 import Home from './components/Home/Home.jsx';
 import DetailsRecipe from './components/DetailsRecipe/DetailsRecipe.jsx';
 import CreateRecipe from './components/CreateRecipe/CreateRecipe.jsx';
-import axios from 'axios';
+// import axios from 'axios';
 
-axios.defaults.baseURL = 'https://pi-food-production-back.up.railway.app/';
+// axios.defaults.baseURL = 'https://pi-food-production-back.up.railway.app/';
 
 function App() {
 	return (
