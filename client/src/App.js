@@ -7,7 +7,7 @@ import DetailsRecipe from './components/DetailsRecipe/DetailsRecipe.jsx';
 import CreateRecipe from './components/CreateRecipe/CreateRecipe.jsx';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'pi-food-production-back.up.railway.app';
+axios.defaults.baseURL = 'https://pi-food-production-back.up.railway.app/';
 
 function App() {
 	return (
