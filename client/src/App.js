@@ -7,7 +7,7 @@ import DetailsRecipe from './components/DetailsRecipe/DetailsRecipe.jsx';
 import CreateRecipe from './components/CreateRecipe/CreateRecipe.jsx';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://pi-food-back-lqeb.onrender.com/';
+axios.defaults.baseURL = process.env.REACT_APP_BACK || 'http://localhost:3001';
 
 function App() {
 	return (

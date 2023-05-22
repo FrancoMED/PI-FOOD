@@ -8,7 +8,6 @@ export const SEARCH_RECIPE = 'SEARCH_RECIPE';
 export const GET_DIETS = 'GET_DIETS';
 export const SAVE_MY_RECIPE = 'SAVE_MY_RECIPE';
 export const SORT_RECIPES = 'SORT_RECIPES';
-export const FILTER_RECIPES = 'FILTER_RECIPES';
 
 export function allRecipes() {
 	return async function call(dispatch) {

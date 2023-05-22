@@ -6,8 +6,7 @@ import {
 	SEARCH_RECIPE,
 	GET_DIETS,
 	SAVE_MY_RECIPE,
-	SORT_RECIPES,
-	FILTER_RECIPES
+	SORT_RECIPES
 } from '../actions/actions.js';
 
 const initialState = {
